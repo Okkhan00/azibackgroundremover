@@ -8,8 +8,10 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // CI passes -PversionCode / -PversionName; local builds fall back to these defaults.
-        versionCode (project.findProperty("versionCode") ?: "1").toInteger()
-        versionName (project.findProperty("versionName") ?: "1.0.0")
+        // Use "=" (assignment), not a method call: Groovy would otherwise run ".toInteger()" on the
+        // result of versionCode(...) instead of on the value, which makes Gradle fail with "Value is null".
+        versionCode = Integer.parseInt((project.findProperty("versionCode") ?: "1").toString())
+        versionName = (project.findProperty("versionName") ?: "1.0.0").toString()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
