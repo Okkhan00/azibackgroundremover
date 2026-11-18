@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Background Remover by AZI CREATION</string>
+    <string name="title_activity_main">Background Remover by AZI CREATION</string>
+    <string name="package_name">com.Azi.backgroundremover</string>
+    <string name="custom_url_scheme">com.Azi.backgroundremover</string>
+</resources>
